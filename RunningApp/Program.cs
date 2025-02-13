@@ -85,7 +85,7 @@
         }
     }
 
-    /*
+    
 
     static void MenuEntrenamiento(){
         
@@ -108,11 +108,11 @@
             break;
 
             case "2":
-            //ListarEntrenamiento();
+            ListarEntrenamiento();
             break;
 
             case "3":
-            //VaciarEntrenamiento();
+            VaciarEntrenamiento();
 
             case "4":
             inicioSesion = false; //para terminar consola
@@ -136,8 +136,22 @@
         string duracion = Console.ReadLine();
 
         entrenamientos.Add(new Entrenamiento {Distancia = distancia, Duracion = duracion});
-        Console.WriteLine ("Entrenamiento registrado correctamente");
+        Console.WriteLine ("Entrenamiento guardado correctamente");
+
+        Console.WriteLine("Presione cualquier tecla para volver al menú de entrenamiento: ");
+        Console.ReadKey();
 
     }
-    */
+
+    static void ListarEntrenamiento(){
+
+        
+    }
+
+    static void VaciarEntrenamiento(){
+
+        VaciarEntrenamiento.Clear();
+
+    }
+    
  }
