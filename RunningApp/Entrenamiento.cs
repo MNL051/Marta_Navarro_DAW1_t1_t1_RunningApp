@@ -1,7 +1,8 @@
-class Entrenamiento{
+/*class Entrenamiento{
 
-    private string? titulo; 
-    private int? duracion;
+    private string? distancia; 
+    private string? duracion;
 
-    public string? Titulo { get => titulo; set => titulo = value; }
-}
+    public string? Distancia { get => distancia; set => distancia = value; }
+    public string? Duracion {get=> duracion; set => duracion = value;}
+}*/

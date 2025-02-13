@@ -85,6 +85,8 @@
         }
     }
 
+    /*
+
     static void MenuEntrenamiento(){
         
         bool inicioSesion = true;
@@ -137,4 +139,5 @@
         Console.WriteLine ("Entrenamiento registrado correctamente");
 
     }
+    */
  }
