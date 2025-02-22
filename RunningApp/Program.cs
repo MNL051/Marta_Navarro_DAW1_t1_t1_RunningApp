@@ -9,12 +9,12 @@
         bool continuar = true;
         while (continuar)
         {
-
+        //menú principal
          Console.WriteLine("\n Bienvenido a tu programa de entrenamiento");
          Console.WriteLine("1.Registrar Usuario");
          Console.WriteLine("2.Iniciar sesión");
          Console.WriteLine("3.Salir");
-         Console.Write("Seleccione una opción: ");
+         Console.Write("\nSeleccione una opción: ");
 
         string opcion = Console.ReadLine();
 
@@ -33,7 +33,7 @@
             break; 
 
             default:
-            Console.WriteLine("Término erróneo. Intenteló de nuevo");
+            Console.WriteLine("\nTérmino erróneo. Intenteló de nuevo");
             break;
         }
 
@@ -43,16 +43,16 @@
 
     static void RegistrarUsuario(){ //metodo de registro 
 
-        Console.WriteLine("Ingrese su email: ");
+        Console.WriteLine("\nIngrese su correo electrónico: ");
         string email = Console.ReadLine();
 
-        Console.WriteLine("Ingrese su nombre: ");
+        Console.WriteLine("\nIngrese su nombre: ");
         string nombre = Console.ReadLine();
 
         if(usuarios.Exists(usuario => usuario.Nombre == nombre)){ //busca si el nombre ya esta guardado 
 
-            Console.WriteLine("Este nombre de usuario ya esta en uso");
-            Console.WriteLine("Presione cualquier tecla para volver al menú: ");
+            Console.WriteLine("\nEste nombre de usuario ya esta en uso");
+            Console.WriteLine("\nPresione cualquier tecla para volver al menú: ");
             Console.ReadKey();
             return;
         }
@@ -61,7 +61,7 @@
         string contrasena = Console.ReadLine();
         
         usuarios.Add(new Usuario {Email = email, Nombre = nombre , Contrasena = contrasena }); //crea un objeto Usuario y verifica que no haya duplicaodos
-        Console.WriteLine("Usuario registrado con éxito");
+        Console.WriteLine("\nUsuario registrado con éxito");
 
         Console.WriteLine("Presione cualquier tecla para volver al menú: ");
         Console.ReadKey();
@@ -69,21 +69,21 @@
     }
 
     static void IniciarSesion(){
-        Console.WriteLine("Ingrese su correo electrónico: ");
+        Console.WriteLine("\nIngrese su correo electrónico: ");
         string email = Console.ReadLine();
 
-         Console.WriteLine("Ingrese su contraseña: ");
+         Console.WriteLine("\nIngrese su contraseña: ");
         string contrasena = Console.ReadLine();
 
-        Usuario usuario = usuarios.Find(usuario => usuario.Email == email && usuario.Contrasena == contrasena); //buscan el email y contraeña
+        Usuario usuario = usuarios.Find(usuario => usuario.Email == email && usuario.Contrasena == contrasena); //buscan el email y contraseña
 
         if(usuario != null){ 
-            Console.WriteLine("Bienvenido " + usuario.Nombre);
+            Console.WriteLine("\nBienvenido " + usuario.Nombre);
 
             MenuEntrenamiento();
         }
         else{
-            Console.WriteLine("Email o Contraseña incorrectos");
+            Console.WriteLine("\nCorreo o contraseña incorrectos");
         }
     }
     static void MenuEntrenamiento(){
@@ -91,12 +91,13 @@
         bool inicioSesion = true;
         while (inicioSesion)
         {
-
+        //menú de entrenamiento
          Console.WriteLine("\n ¿Qué desea hacer?");
          Console.WriteLine("1.Registrar un entrenamiento");
-         Console.WriteLine("2.Listar in entrenamiento");
-         Console.WriteLine("3.Borrar un entrenamiento");
+         Console.WriteLine("2.Listar un entrenamiento");
+         Console.WriteLine("3.Borrar los entrenamientos");
          Console.WriteLine("4.Cerrar sesión");
+         Console.Write("\nSeleccione una opción: ");
 
         string opcion = Console.ReadLine();
 
@@ -116,11 +117,11 @@
 
             case "4":
             inicioSesion = false; //para terminar consola
-            Console.WriteLine("Sesión cerrada. Volviendo al menú de entrenamiento");
+            Console.WriteLine("\nSesión cerrada. Volviendo al menú de entrenamiento");
             break;;
 
             default:
-            Console.WriteLine("Término erróneo. Intenteló de nuevo");
+            Console.WriteLine("\nTérmino erróneo. Intenteló de nuevo");
             break;
             
             }
@@ -130,16 +131,16 @@
 
     static void RegistrarEntrenamiento(){
 
-        Console.WriteLine("Ingrese la distancia recorrida: ");
+        Console.WriteLine("\nIngrese la distancia recorrida: ");
         string distancia = Console.ReadLine();
 
-        Console.WriteLine("Ingrese el tiempo de duracion: ");
+        Console.WriteLine("Ingrese los minutos o horas de duracion: ");
         string duracion = Console.ReadLine();
 
         entrenamientos.Add(new Entrenamiento {Distancia = distancia, Duracion = duracion});
-        Console.WriteLine ("Entrenamiento guardado correctamente");
+        Console.WriteLine ("\nEntrenamiento guardado correctamente") ;
 
-        Console.WriteLine("Presione cualquier tecla para volver al menú de entrenamiento: ");
+        Console.WriteLine("\nPresione cualquier tecla para volver al menú de entrenamiento: ");
         Console.ReadKey();
 
     }
@@ -147,18 +148,16 @@
     static void ListarEntrenamiento(){
 
         if (entrenamientos.Count > 0){
+            int contador = 1;
 
-           // int contador = 1;
             foreach (var entrenamiento in entrenamientos)
             {
-                //contador ++;
-                //Console.WriteLine($"{contador++}. Distancia: {entrenamiento.Distancia} km, Tiempo: {entrenamiento.Duracion}");
-                Console.WriteLine("Distancia: " + entrenamiento.Distancia + " km" , "Tiempo: " + entrenamiento.Duracion); 
-                Console.WriteLine("Tiempo: " + entrenamiento.Duracion + " horas");
+                Console.WriteLine("\nEntrenamiento " + contador++ + ":" + " Distancia: " + entrenamiento.Distancia + " ,Tiempo: " + entrenamiento.Duracion); 
             }
         }
         else{
-            Console.WriteLine("No hay ningún entrenamiento guardado");
+            
+            Console.WriteLine("\nNo hay ningún entrenamiento guardado");
         }
         
     }
@@ -166,7 +165,7 @@
     static void VaciarEntrenamiento(){
 
         entrenamientos.Clear();
-        Console.WriteLine("Entrenamientos borrados con éxito");
+        Console.WriteLine("\nEntrenamientos borrados con éxito");
 
     }
     
