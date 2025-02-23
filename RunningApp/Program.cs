@@ -16,7 +16,7 @@
          Console.WriteLine("3.Salir");
          Console.Write("\nSeleccione una opción: ");
 
-        string opcion = Console.ReadLine();
+        string? opcion = Console.ReadLine();
 
         switch (opcion){
 
@@ -44,10 +44,10 @@
     static void RegistrarUsuario(){ //metodo de registro 
 
         Console.WriteLine("\nIngrese su correo electrónico: ");
-        string email = Console.ReadLine();
+        string? email = Console.ReadLine();
 
         Console.WriteLine("\nIngrese su nombre: ");
-        string nombre = Console.ReadLine();
+        string? nombre = Console.ReadLine();
 
         if(usuarios.Exists(usuario => usuario.Nombre == nombre)){ //busca si el nombre ya esta guardado 
 
@@ -57,8 +57,8 @@
             return;
         }
 
-        Console.WriteLine("Ingrese su contraseña: ");
-        string contrasena = Console.ReadLine();
+        Console.WriteLine("\nIngrese su contraseña: ");
+        string? contrasena = Console.ReadLine();
         
         usuarios.Add(new Usuario {Email = email, Nombre = nombre , Contrasena = contrasena }); //crea un objeto Usuario y verifica que no haya duplicaodos
         Console.WriteLine("\nUsuario registrado con éxito");
@@ -70,12 +70,12 @@
 
     static void IniciarSesion(){
         Console.WriteLine("\nIngrese su correo electrónico: ");
-        string email = Console.ReadLine();
+        string? email = Console.ReadLine();
 
          Console.WriteLine("\nIngrese su contraseña: ");
-        string contrasena = Console.ReadLine();
+        string? contrasena = Console.ReadLine();
 
-        Usuario usuario = usuarios.Find(usuario => usuario.Email == email && usuario.Contrasena == contrasena); //buscan el email y contraseña
+        Usuario? usuario = usuarios.Find(usuario => usuario.Email == email && usuario.Contrasena == contrasena); //buscan el email y contraseña
 
         if(usuario != null){ 
             Console.WriteLine("\nBienvenido " + usuario.Nombre);
@@ -99,7 +99,7 @@
          Console.WriteLine("4.Cerrar sesión");
          Console.Write("\nSeleccione una opción: ");
 
-        string opcion = Console.ReadLine();
+        string? opcion = Console.ReadLine();
 
         switch (opcion){
 
@@ -132,10 +132,10 @@
     static void RegistrarEntrenamiento(){
 
         Console.WriteLine("\nIngrese la distancia recorrida: ");
-        string distancia = Console.ReadLine();
+        string? distancia = Console.ReadLine();
 
-        Console.WriteLine("Ingrese los minutos o horas de duracion: ");
-        string duracion = Console.ReadLine();
+        Console.WriteLine("\nIngrese los minutos o horas de duracion: ");
+        string? duracion = Console.ReadLine();
 
         entrenamientos.Add(new Entrenamiento {Distancia = distancia, Duracion = duracion});
         Console.WriteLine ("\nEntrenamiento guardado correctamente") ;
@@ -152,7 +152,7 @@
 
             foreach (var entrenamiento in entrenamientos)
             {
-                Console.WriteLine("\nEntrenamiento " + contador++ + ":" + " Distancia: " + entrenamiento.Distancia + " ,Tiempo: " + entrenamiento.Duracion); 
+                Console.WriteLine("\nEntrenamiento " + contador++ + ":" + " Distancia: " + entrenamiento.Distancia +","+ " Tiempo: " + entrenamiento.Duracion); 
             }
         }
         else{
